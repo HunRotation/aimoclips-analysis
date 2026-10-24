@@ -1,0 +1,25 @@
+{
+  "dataset": "AImoclips",
+  "dataset_doi": "10.5281/zenodo.23219643",
+  "dataset_repository": "https://github.com/HunRotation/AImoclips",
+  "metric_inputs": "Retained per-clip CLAP and per-system FAD values used in the manuscript statistical analyses. Original audio-to-metric computation is not reconstructed; the historical FAD reference-track manifest is unavailable.",
+  "clip_means": "The published three-decimal clip means are preserved for analyses originally using them; exact means are reaggregated from ratings for the analyses originally using exact means.",
+  "files": {
+    "clap_scores.csv": {
+      "sha256": "f3fcb42c7de724a517385a18d29a697fd69a4f76fc5b9930b77623c52ea94c64"
+    },
+    "clips_metadata.csv": {
+      "sha256": "ea66193ea3d8e737538cd4425425d816fe1bacc5f86b49c95f5564ef1e3e6b5a"
+    },
+    "distribution_metrics.csv": {
+      "sha256": "083bf3903075c1dcb3a78640e5f24b731288747f72035e50ed76febee752ca2d"
+    },
+    "emotion_intents_metadata.csv": {
+      "sha256": "4636235003f3e49de974b02408dcc839e17f83077e5a256fc5231cf74b0be503"
+    },
+    "ratings_metadata.csv": {
+      "sha256": "710401d1da0a01cbf215e995c9d69d1999acff4a627cbee789bd97afe1b70ba3"
+    }
+  },
+  "distribution_metrics_selection": "Retained model and fad_score columns without changing the numeric literals; unused mad_score omitted."
+}
