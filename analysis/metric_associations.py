@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproduce Figure 4 and S10 CLAP/FAD associations and full CLAP regressions.
+"""Reproduce Figure 4, S10 CLAP/FAD associations, and S11 full CLAP regressions.
 
 Uses released metric values, exact clip means, the original crossed bootstrap,
 emotion-adjusted weighted regressions, and six-system FAD permutation tests.

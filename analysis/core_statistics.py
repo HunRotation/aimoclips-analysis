@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Reproduce agreement, factorial tests, centralization, and quadrant accuracy.
 
-These analyses support Results and S3, S4, S6, S7, S9, and S11 Tables.
+These analyses support Results and S3, S4, S6, S7, S9, and S12 Tables.
 Released rounded clip means and the original random-draw order are preserved.
 """
 
@@ -449,7 +449,7 @@ def wilson(x, n, z=1.959963984540054):
 
 
 def accuracy(ratings, c, rng, nboot: int, nperm: int):
-    """Calculate S7 intervals and S11 emotion-stratified permutation tests."""
+    """Calculate S7 intervals and S12 emotion-stratified permutation tests."""
 
     def wf1(y_true, y_pred):
         y_true, y_pred = np.asarray(y_true), np.asarray(y_pred)
