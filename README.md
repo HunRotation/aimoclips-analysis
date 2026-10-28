@@ -87,15 +87,33 @@ Use the defaults for the reported resampling results. The core stage uses 2,000 
 
 This package reproduces the statistical analyses from the included ratings, references, and **saved CLAP/FAD values**. It produces numerical inputs for the manuscript tables and figures, including Figure 4, rather than rendering the figures or compiling the manuscript.
 
-It does not regenerate music clips, recompute audio embeddings or metric scores, or render publication figures. The historical FAD reference-track selection has now been recovered, as recorded in [provenance.json](data/provenance.json). The exact historical checkpoint use and random audio-crop positions remain unverified, so the saved FAD values continue to support the downstream statistical analyses without a claim of exact audio-to-FAD reproduction.
+It does not regenerate music clips, recompute audio embeddings or metric scores, or render publication figures. The manuscript specifies LAION-CLAP-MA with the music–AudioSet checkpoint for FAD, and the reference-track selection has been recovered, as recorded in [provenance.json](data/provenance.json). Historical random audio-crop positions were not retained. Recomputing the metric scores from audio has not yet been tested.
 
-### Recovered FAD reference tracks and model downloads
+### Download the CLAP checkpoint and FAD reference audio
 
-The [2,000-track reference manifest](reports/analysis/aimoclips_metric_recovery/20261028_reference_track_manifest.csv) includes identifiers, original source URLs, file sizes, and SHA-256 checksums. Sampling the retained metadata with `random_state=42` exactly matches all 2,000 retained reference files. The original parser skipped multi-tag rows, so the eligible sampling pool was 5,107 tracks. This behavior is preserved for recovery and explained in the [recovery report](reports/analysis/aimoclips_metric_recovery/20261028_metric_recovery.md).
+These downloads are optional for the statistical analyses above. To prepare audio metric computation, use [download_metric_assets.py](download_metric_assets.py) from the repository root. It uses Python's standard library and verifies the SHA-256 of each downloaded or existing file. Checkpoint URLs are pinned to a specific repository revision.
 
-The [recovery instructions](reports/analysis/aimoclips_metric_recovery/20261028_recovery_instructions.md) describe manifest extraction, FAD calculation, and separate per-clip CLAP scoring. They also explain the distinction between the intended music checkpoint and the default model used in retained failed-run logs. Seed 42 fixes track selection; no historical seed or offsets were recovered for CLAP's random reference-audio crops.
+Download the manuscript's LAION-CLAP-MA checkpoint, `music_audioset_epoch_15_esc_90.14.pt` (HTSAT-base, approximately 2.35 GB):
 
-Use the separate [download helper](reports/analysis/aimoclips_metric_recovery/scripts/download_metric_assets.py) to plan or explicitly download the reference audio and a selected CLAP checkpoint. Checkpoint URLs pin a repository revision, and downloaded files are verified against SHA-256 values. Downloads require `--download`. Reference audio and model weights are not bundled. The helpers and recovered source records are separate from the validated statistical runner; model inference and exact historical metric reproduction have not been validated.
+```sh
+python download_metric_assets.py checkpoint \
+  --variant music-audioset \
+  --destination metric_assets/checkpoints \
+  --download
+```
+
+Download the 2,000 MTG-Jamendo reference tracks used for FAD (approximately 21.3 GB):
+
+```sh
+python download_metric_assets.py reference \
+  --manifest reports/analysis/aimoclips_metric_recovery/20261028_reference_track_manifest.csv \
+  --destination metric_assets/reference_audio \
+  --download
+```
+
+Omit `--download` to inspect the plan without fetching files. Verified existing files are reused; files with different contents are preserved and cause an error. The `metric_assets/` directory is excluded from Git. The same checkpoint can be used for FAD and per-clip CLAP scoring; the reference audio is needed only for FAD. These commands download assets but do not run model inference.
+
+The [reference manifest](reports/analysis/aimoclips_metric_recovery/20261028_reference_track_manifest.csv) records track identifiers, source URLs, sizes, and checksums. Sampling the retained metadata with `random_state=42` reproduces the selection from the original parser's 5,107 eligible rows. This fixes track membership; it does not recover the historical random audio-crop offsets. See the [recovery instructions](reports/analysis/aimoclips_metric_recovery/20261028_recovery_instructions.md) for explicit model initialization and the separate FAD/CLAP procedures, and the [recovery report](reports/analysis/aimoclips_metric_recovery/20261028_metric_recovery.md) for the retained source records.
 
 ## License
 
