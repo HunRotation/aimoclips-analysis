@@ -2,7 +2,7 @@
   "dataset": "AImoclips",
   "dataset_doi": "10.5281/zenodo.23219643",
   "dataset_repository": "https://github.com/HunRotation/AImoclips",
-  "metric_inputs": "Retained per-clip CLAP and per-system FAD values used in the manuscript statistical analyses. Original audio-to-metric computation is not reconstructed; the historical FAD reference-track manifest is unavailable.",
+  "metric_inputs": "Retained per-clip CLAP and per-system FAD values used in the manuscript statistical analyses. The historical 2000-track FAD reference selection was recovered on 2026-10-28 and exactly matches the retained reference directory. Historical audio-to-metric computation is not yet reproduced; exact checkpoint use and random crop offsets remain unverified.",
   "clip_means": "The published three-decimal clip means are preserved for analyses originally using them; exact means are reaggregated from ratings for the analyses originally using exact means.",
   "files": {
     "clap_scores.csv": {
@@ -21,5 +21,21 @@
       "sha256": "710401d1da0a01cbf215e995c9d69d1999acff4a627cbee789bd97afe1b70ba3"
     }
   },
-  "distribution_metrics_selection": "Retained model and fad_score columns without changing the numeric literals; unused mad_score omitted."
+  "distribution_metrics_selection": "Retained model and fad_score columns without changing the numeric literals; unused mad_score omitted.",
+  "reference_recovery": {
+    "date_seoul": "2026-10-28",
+    "paths_relative_to": "repository_root",
+    "manifest_path": "reports/analysis/aimoclips_metric_recovery/20261028_reference_track_manifest.csv",
+    "manifest_sha256": "3cbbcde5b754c3f90d6dbad416f5644d9a4baba44810e8c5b1e632b7d58e1468",
+    "metadata_path": "reports/analysis/aimoclips_metric_recovery/data/raw_30s_cleantags.tsv",
+    "metadata_sha256": "e827347a505d6ed4e2ce213b8f1a83e5ac62e651ab7ddff426c7f04fa007d680",
+    "metadata_license": "CC-BY-NC-SA-4.0",
+    "track_count": 2000,
+    "eligible_metadata_rows": 5107,
+    "selection_random_state": 42,
+    "exact_track_set_match": true,
+    "historical_crop_offsets_recovered": false,
+    "historical_fad_reproduced": false,
+    "details": "reports/analysis/aimoclips_metric_recovery/20261028_metric_recovery.md"
+  }
 }

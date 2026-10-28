@@ -1,0 +1,67 @@
+[
+  {
+    "source_filename": "analysis.log",
+    "source_sha256": "fdff11dc5edf8d7cf76803728892d084c9340263ad91276c9c60f941e6e1906d",
+    "key_lines": [
+      "Starting Distribution Metrics Calculation (FAD & MAD)...",
+      "Warning: Local checkpoint not found. Using default.",
+      "Load our best checkpoint in the paper.",
+      "The checkpoint is already downloaded",
+      "Error initializing CLAP: Error(s) in loading state_dict for CLAP:"
+    ],
+    "CLAP_batch_errors": 0,
+    "first_batch_error": null,
+    "contains_keyboard_interrupt": false,
+    "proves_saved_numeric_FAD_origin": false
+  },
+  {
+    "source_filename": "analysis_log.txt",
+    "source_sha256": "772f345f8ec43ff56391e903d0cd82bfa0ffa847307087a565f191c716b3d339",
+    "key_lines": [
+      "Starting Distribution Metrics Calculation (FAD & MAD)...",
+      "Warning: Local checkpoint not found. Using default.",
+      "Load our best checkpoint in the paper.",
+      "The checkpoint is already downloaded",
+      "Processing FAD Reference (MTG-Jamendo) from ../datasets/mtg-jamendo...",
+      "Extracting CLAP embeddings for 2000 files..."
+    ],
+    "CLAP_batch_errors": 15,
+    "first_batch_error": "Error processing CLAP batch 0: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.",
+    "contains_keyboard_interrupt": true,
+    "proves_saved_numeric_FAD_origin": false
+  },
+  {
+    "source_filename": "analysis_tiny.log",
+    "source_sha256": "7ccf191109a72a5bbf2efb4caa4a62045e1284d3ccc71cbe42c87d267c22ca6c",
+    "key_lines": [
+      "Starting Distribution Metrics Calculation (FAD & MAD)...",
+      "Warning: Local checkpoint not found. Using default.",
+      "Load our best checkpoint in the paper.",
+      "The checkpoint is already downloaded",
+      "Processing FAD Reference (MTG-Jamendo) from ../datasets/mtg-jamendo...",
+      "Extracting CLAP embeddings for 2000 files...",
+      "Saved distribution metrics to analysis/metrics/distribution_metrics.csv"
+    ],
+    "CLAP_batch_errors": 125,
+    "first_batch_error": "  0%|          | 0/125 [00:00<?, ?it/s]Error processing CLAP batch 0: 'CLAP_Module' object has no attribute 'get_audio_embedding_from_file_list'",
+    "contains_keyboard_interrupt": false,
+    "proves_saved_numeric_FAD_origin": false
+  },
+  {
+    "source_filename": "analysis_final.log",
+    "source_sha256": "e928903e0247c08fd603fdc695ea86e04c8837c9caeea07b4ca7fd5d5b97ccf6",
+    "key_lines": [
+      "Starting Distribution Metrics Calculation (FAD & MAD)...",
+      "Warning: Local checkpoint not found. Using default.",
+      "Load our best checkpoint in the paper.",
+      "The checkpoint is already downloaded",
+      "Processing FAD Reference (MTG-Jamendo) from ../datasets/mtg-jamendo...",
+      "Extracting CLAP embeddings for 2000 files...",
+      "Saved distribution metrics to analysis/metrics/distribution_metrics.csv"
+    ],
+    "CLAP_batch_errors": 125,
+    "first_batch_error": " 54%|\u2588\u2588\u2588\u2588\u2588\u258d    | 68/125 [17:43<14:50, 15.62s/it]Error processing CLAP batch 0: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.",
+    "contains_keyboard_interrupt": false,
+    "proves_saved_numeric_FAD_origin": false
+  }
+]

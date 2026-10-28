@@ -87,13 +87,23 @@ Use the defaults for the reported resampling results. The core stage uses 2,000 
 
 This package reproduces the statistical analyses from the included ratings, references, and **saved CLAP/FAD values**. It produces numerical inputs for the manuscript tables and figures, including Figure 4, rather than rendering the figures or compiling the manuscript.
 
-It does not regenerate music clips, recompute audio embeddings or metric scores, or render publication figures. As documented in [provenance.json](data/provenance.json), the historical FAD reference-track manifest is unavailable. The saved FAD values support reproduction of the downstream statistical results, but an exact audio-to-FAD reconstruction is not currently possible from this package.
+It does not regenerate music clips, recompute audio embeddings or metric scores, or render publication figures. The historical FAD reference-track selection has now been recovered, as recorded in [provenance.json](data/provenance.json). The exact historical checkpoint use and random audio-crop positions remain unverified, so the saved FAD values continue to support the downstream statistical analyses without a claim of exact audio-to-FAD reproduction.
+
+### Recovered FAD reference tracks and model downloads
+
+The [2,000-track reference manifest](reports/analysis/aimoclips_metric_recovery/20261028_reference_track_manifest.csv) includes identifiers, original source URLs, file sizes, and SHA-256 checksums. Sampling the retained metadata with `random_state=42` exactly matches all 2,000 retained reference files. The original parser skipped multi-tag rows, so the eligible sampling pool was 5,107 tracks. This behavior is preserved for recovery and explained in the [recovery report](reports/analysis/aimoclips_metric_recovery/20261028_metric_recovery.md).
+
+The [recovery instructions](reports/analysis/aimoclips_metric_recovery/20261028_recovery_instructions.md) describe manifest extraction, FAD calculation, and separate per-clip CLAP scoring. They also explain the distinction between the intended music checkpoint and the default model used in retained failed-run logs. Seed 42 fixes track selection; no historical seed or offsets were recovered for CLAP's random reference-audio crops.
+
+Use the separate [download helper](reports/analysis/aimoclips_metric_recovery/scripts/download_metric_assets.py) to plan or explicitly download the reference audio and a selected CLAP checkpoint. Checkpoint URLs pin a repository revision, and downloaded files are verified against SHA-256 values. Downloads require `--download`. Reference audio and model weights are not bundled. The helpers and recovered source records are separate from the validated statistical runner; model inference and exact historical metric reproduction have not been validated.
 
 ## License
 
 Except where otherwise noted, the author-created code, documentation, and included analysis data in this repository are licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by/4.0/), matching the AImoclips dataset. See [LICENSE](LICENSE) for the full license text.
 
 You may copy, redistribute, and adapt the licensed material, including for commercial purposes, provided that you give appropriate credit, link to the license, and indicate any changes. For attribution, identify the AImoclips analysis authors and link to this repository. When reporting research results, also identify the commit used and cite the AImoclips dataset. Third-party software and any separately identified third-party material retain their own licenses.
+
+The recovered MTG-Jamendo metadata snapshot and metadata fields in the reference manifest retain **CC BY-NC-SA 4.0**, separate from the repository's general CC BY 4.0 license. Reference audio retains its individual upstream licenses. See the [third-party notices](reports/analysis/aimoclips_metric_recovery/data/THIRD_PARTY_NOTICES.md) for attribution and terms.
 
 ## Contact
 

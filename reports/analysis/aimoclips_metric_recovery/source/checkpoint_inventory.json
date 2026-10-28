@@ -1,0 +1,19 @@
+{
+  "huggingface_repository": "lukewys/laion_clap",
+  "public_revision_checked_20261028": "b3708341862f581175dba5c356a4ebf74a9b6651",
+  "music_checkpoint": {
+    "filename": "music_audioset_epoch_15_esc_90.14.pt",
+    "sha256": "fae3e9c087f2909c28a09dc31c8dfcdacbc42ba44c70e972b58c1bd1caf6dedd",
+    "bytes": 2352471003,
+    "architecture": "HTSAT-base",
+    "historical_local_file_recovered": false
+  },
+  "retained_default_checkpoint": {
+    "filename": "630k-audioset-best.pt",
+    "sha256": "8053c9775516af2f4902e1e8281e356cc1bf7a85e8b761908170767b77c3f037",
+    "bytes": 1863587645,
+    "architecture": "HTSAT-tiny",
+    "local_file_hash_verified": true,
+    "historical_use_for_published_six_scores_proven": false
+  }
+}

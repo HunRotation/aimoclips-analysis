@@ -1,0 +1,24 @@
+{
+  "date_seoul": "2026-10-28",
+  "status": "passed",
+  "reference_manifest_rows": 2000,
+  "source_rows_and_seeded_selection_verified": true,
+  "historical_source_copies_verified": 37,
+  "python_files_compiled_without_execution": 44,
+  "frechet_function_checks": {
+    "identical_gaussians": 0.0,
+    "known_diagonal_case": 7.0,
+    "symmetry": true
+  },
+  "verified_download_checks": [
+    "local file transfer",
+    "idempotent existing file",
+    "reject existing mismatch without overwrite",
+    "reject new mismatched download",
+    "checkpoint dry runs",
+    "reference dry run"
+  ],
+  "network_downloads_tested": false,
+  "CLAP_model_inference_run": false,
+  "historical_metric_reproduction_established": false
+}
